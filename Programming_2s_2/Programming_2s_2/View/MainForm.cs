@@ -14,6 +14,7 @@ namespace Programming_2s_2
         private Model.Rectangle _currentRectangle;
         private Model.Film[] _movies = new Model.Film[5];
         private Model.Film _currentMovie;
+        private Model.Ring[] _rings = new Model.Ring[5];
 
         public MainForm()
         {
@@ -27,6 +28,14 @@ namespace Programming_2s_2
                     "Purple", 
                     new Model.Point2D(new Random().NextDouble() * 100,
                     new Random().NextDouble() * 100));
+            }
+            for (int i = 0; i < 5; i++)
+            {
+                _rings[i] = new Model.Ring(
+                    new Model.Point2D(new Random().NextDouble() * 100, new Random().NextDouble() * 100),
+                    new Random().NextDouble() * 250,
+                    new Random().NextDouble() * 10,
+                    0);
             }
             setUpMovies();
         }
