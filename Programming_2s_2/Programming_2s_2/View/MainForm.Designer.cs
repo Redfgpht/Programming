@@ -55,10 +55,21 @@
             YearRealiseTextBox = new TextBox();
             DurationFilmTextBox = new TextBox();
             NameFilmTextBox = new TextBox();
+            tabPage4 = new TabPage();
+            RectanglePanel = new Panel();
+            RectangleIDTextBoxPanel = new TextBox();
+            RectangleXTextBoxPanel = new TextBox();
+            RectangleYTextBoxPanel = new TextBox();
+            RectangleWidthTextBoxPanel = new TextBox();
+            RectangleLengthTextBoxPanel = new TextBox();
+            AddRectanglePanelButton = new Button();
+            DeleteRectanglePanelButton = new Button();
+            RectanglePanelListBox = new ListBox();
             Enums.SuspendLayout();
             tabPage1.SuspendLayout();
             tabPage2.SuspendLayout();
             tabPage3.SuspendLayout();
+            tabPage4.SuspendLayout();
             SuspendLayout();
             // 
             // Enums
@@ -66,6 +77,7 @@
             Enums.Controls.Add(tabPage1);
             Enums.Controls.Add(tabPage2);
             Enums.Controls.Add(tabPage3);
+            Enums.Controls.Add(tabPage4);
             Enums.Dock = DockStyle.Fill;
             Enums.Location = new Point(0, 0);
             Enums.Name = "Enums";
@@ -332,6 +344,96 @@
             NameFilmTextBox.TabIndex = 0;
             NameFilmTextBox.TextChanged += NameFilmTextBox_TextChanged;
             // 
+            // tabPage4
+            // 
+            tabPage4.Controls.Add(RectanglePanelListBox);
+            tabPage4.Controls.Add(DeleteRectanglePanelButton);
+            tabPage4.Controls.Add(AddRectanglePanelButton);
+            tabPage4.Controls.Add(RectangleLengthTextBoxPanel);
+            tabPage4.Controls.Add(RectangleWidthTextBoxPanel);
+            tabPage4.Controls.Add(RectangleYTextBoxPanel);
+            tabPage4.Controls.Add(RectangleXTextBoxPanel);
+            tabPage4.Controls.Add(RectangleIDTextBoxPanel);
+            tabPage4.Controls.Add(RectanglePanel);
+            tabPage4.Location = new Point(4, 24);
+            tabPage4.Name = "tabPage4";
+            tabPage4.Size = new Size(792, 422);
+            tabPage4.TabIndex = 3;
+            tabPage4.Text = "Rectangles";
+            tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // RectanglePanel
+            // 
+            RectanglePanel.BorderStyle = BorderStyle.FixedSingle;
+            RectanglePanel.Location = new Point(335, 13);
+            RectanglePanel.Name = "RectanglePanel";
+            RectanglePanel.Size = new Size(449, 401);
+            RectanglePanel.TabIndex = 0;
+            RectanglePanel.Paint += RectanglePanel_Paint;
+            // 
+            // RectangleIDTextBoxPanel
+            // 
+            RectangleIDTextBoxPanel.Location = new Point(65, 207);
+            RectangleIDTextBoxPanel.Name = "RectangleIDTextBoxPanel";
+            RectangleIDTextBoxPanel.Size = new Size(157, 23);
+            RectangleIDTextBoxPanel.TabIndex = 1;
+            // 
+            // RectangleXTextBoxPanel
+            // 
+            RectangleXTextBoxPanel.Location = new Point(65, 236);
+            RectangleXTextBoxPanel.Name = "RectangleXTextBoxPanel";
+            RectangleXTextBoxPanel.Size = new Size(157, 23);
+            RectangleXTextBoxPanel.TabIndex = 2;
+            // 
+            // RectangleYTextBoxPanel
+            // 
+            RectangleYTextBoxPanel.Location = new Point(65, 265);
+            RectangleYTextBoxPanel.Name = "RectangleYTextBoxPanel";
+            RectangleYTextBoxPanel.Size = new Size(157, 23);
+            RectangleYTextBoxPanel.TabIndex = 3;
+            // 
+            // RectangleWidthTextBoxPanel
+            // 
+            RectangleWidthTextBoxPanel.Location = new Point(65, 294);
+            RectangleWidthTextBoxPanel.Name = "RectangleWidthTextBoxPanel";
+            RectangleWidthTextBoxPanel.Size = new Size(157, 23);
+            RectangleWidthTextBoxPanel.TabIndex = 4;
+            // 
+            // RectangleLengthTextBoxPanel
+            // 
+            RectangleLengthTextBoxPanel.Location = new Point(65, 323);
+            RectangleLengthTextBoxPanel.Name = "RectangleLengthTextBoxPanel";
+            RectangleLengthTextBoxPanel.Size = new Size(157, 23);
+            RectangleLengthTextBoxPanel.TabIndex = 5;
+            // 
+            // AddRectanglePanelButton
+            // 
+            AddRectanglePanelButton.Location = new Point(16, 178);
+            AddRectanglePanelButton.Name = "AddRectanglePanelButton";
+            AddRectanglePanelButton.Size = new Size(75, 23);
+            AddRectanglePanelButton.TabIndex = 6;
+            AddRectanglePanelButton.Text = "Add";
+            AddRectanglePanelButton.UseVisualStyleBackColor = true;
+            // 
+            // DeleteRectanglePanelButton
+            // 
+            DeleteRectanglePanelButton.Location = new Point(185, 178);
+            DeleteRectanglePanelButton.Name = "DeleteRectanglePanelButton";
+            DeleteRectanglePanelButton.Size = new Size(75, 23);
+            DeleteRectanglePanelButton.TabIndex = 7;
+            DeleteRectanglePanelButton.Text = "Delete";
+            DeleteRectanglePanelButton.UseVisualStyleBackColor = true;
+            // 
+            // RectanglePanelListBox
+            // 
+            RectanglePanelListBox.FormattingEnabled = true;
+            RectanglePanelListBox.ItemHeight = 15;
+            RectanglePanelListBox.Location = new Point(16, 11);
+            RectanglePanelListBox.Name = "RectanglePanelListBox";
+            RectanglePanelListBox.Size = new Size(244, 139);
+            RectanglePanelListBox.TabIndex = 8;
+            RectanglePanelListBox.SelectedIndexChanged += RectanglePanelListBox_SelectedIndexChanged;
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -348,6 +450,8 @@
             tabPage2.PerformLayout();
             tabPage3.ResumeLayout(false);
             tabPage3.PerformLayout();
+            tabPage4.ResumeLayout(false);
+            tabPage4.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -380,5 +484,15 @@
         private Button FindMaxRatingFilm;
         private TextBox MaxRatingFilmTextBox;
         private TextBox Point2DRectangleTextBox;
+        private TabPage tabPage4;
+        private Panel RectanglePanel;
+        private Button AddRectanglePanelButton;
+        private TextBox RectangleLengthTextBoxPanel;
+        private TextBox RectangleWidthTextBoxPanel;
+        private TextBox RectangleYTextBoxPanel;
+        private TextBox RectangleXTextBoxPanel;
+        private TextBox RectangleIDTextBoxPanel;
+        private ListBox RectanglePanelListBox;
+        private Button DeleteRectanglePanelButton;
     }
 }

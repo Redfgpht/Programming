@@ -39,6 +39,16 @@ namespace Programming_2s_2.Model
         {
             return center;
         }
+
+        public double getCenterX()
+        {
+            return center.getX();
+        }
+
+        public double getCenterY() 
+        { 
+            return center.getY();
+        }
         public double getWidth()
         {
             return width;

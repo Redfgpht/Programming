@@ -1,4 +1,5 @@
 using System.Reflection;
+using System.Reflection.Emit;
 using System.Windows.Forms;
 using System.Xml.Linq;
 using Programming_2s_2.Model.Enums;
@@ -12,20 +13,21 @@ namespace Programming_2s_2
 
         private Model.Rectangle[] _rectangles = new Model.Rectangle[5];
         private Model.Rectangle _currentRectangle;
+        private Model.Rectangle _currentRectanglePanel;
         private Model.Film[] _movies = new Model.Film[5];
         private Model.Film _currentMovie;
         private Model.Ring[] _rings = new Model.Ring[5];
 
         public MainForm()
         {
-            
+
             InitializeComponent();
             for (int i = 0; i < 5; i++)
             {
                 _rectangles[i] = new Model.Rectangle(
-                    new Random().NextDouble() * 100, 
-                    new Random().NextDouble() * 100, 
-                    "Purple", 
+                    new Random().NextDouble() * 100,
+                    new Random().NextDouble() * 100,
+                    "Purple",
                     new Model.Point2D(new Random().NextDouble() * 100,
                     new Random().NextDouble() * 100));
             }
@@ -38,6 +40,16 @@ namespace Programming_2s_2
                     0);
             }
             setUpMovies();
+            placeListBoxPanel();
+        }
+
+        public void placeListBoxPanel()
+        {
+            for (int i = 0;i < _rectangles.Length;i++)
+            {
+                RectanglePanelListBox.Items.Add($"{_rectangles[i].id()}: (X = {Math.Round(_rectangles[i].getCenterX())}; Y = {Math.Round(_rectangles[i].getCenterY())} " +
+                    $"W = {Math.Round(_rectangles[i].getWidth())}, H = {Math.Round(_rectangles[i].getHeight())})");
+            }
         }
 
         public void setUpMovies()
@@ -227,6 +239,8 @@ namespace Programming_2s_2
         private void button1_Click(object sender, EventArgs e)
         {
             string TextWeekday = textBox2.Text;
+            LabelWeekday.Text = "";
+
             foreach (string i in Enum.GetNames(typeof(Weekday)))
                 if (TextWeekday == i)
                 {
@@ -372,6 +386,29 @@ namespace Programming_2s_2
 
         private void Point2DRectangleTextBox_TextChanged(object sender, EventArgs e)
         {
+
+        }
+
+        private void RectanglePanel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void RectanglePanelListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            _currentRectanglePanel = _rectangles[RectanglePanelListBox.SelectedIndex];
+
+            RectangleIDTextBoxPanel.Text = _currentRectanglePanel.id().ToString();
+
+            RectangleXTextBoxPanel.Text = Math.Round(_currentRectanglePanel.getCenterX()).ToString();
+
+            RectangleYTextBoxPanel.Text = Math.Round(_currentRectanglePanel.getCenterY()).ToString();
+
+            RectangleLengthTextBoxPanel.Text = Math.Round(_currentRectanglePanel.getHeight()).ToString();
+
+            RectangleWidthTextBoxPanel.Text = Math.Round(_currentRectanglePanel.getWidth()).ToString();
+
+            
 
         }
     }
