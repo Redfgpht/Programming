@@ -14,6 +14,26 @@ namespace Programming_2s_2.Model
         private double radius_internal;
         private double area;
 
+        public double getCenterX()
+        {
+            return center.getX();
+        }
+
+        public double getCenterY()
+        {
+            return center.getY();
+        }
+
+        public double getradius_external()
+        {
+            return radius_external;
+        }
+
+        public double getradius_internal()
+        {
+            return radius_internal;
+        }
+
         public Ring(Point2D center, double radius_external, double radius_internal, double area)
         {
             this.center = center;
